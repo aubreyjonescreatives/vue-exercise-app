@@ -1,17 +1,44 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+   <h1>Exercise List</h1>
+   <exercise-list-form />
+    <exercise-list :items='exerciseItems'/>
+    
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import ExerciseList from './components/ExerciseList.vue'
+import AddExercise from './components/AddExercise.vue'
+
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    ExerciseList
+  }, 
+  data() {
+    return {
+      exerciseItems: [
+        {
+          id: 1, 
+          name: 'Aerobics', 
+          amount: 1,
+        }, 
+         {
+          id: 2, 
+          name: 'Yoga', 
+          amount: 1,
+        }, 
+           {
+          id: 3, 
+          name: 'Dance', 
+          amount: 1,
+        }, 
+
+      ]
+
+    }
   }
 }
 </script>
