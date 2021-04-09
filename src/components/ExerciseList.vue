@@ -1,39 +1,41 @@
+
+
+
 <template>
-<div id="exerciseList-table">
-<table>
-<thead>
-<tr>
-<th>Item</th>
-<th>Amount</th>
-</tr>
-</thead>
-<tbody>
-<tr v-for="item in items" :key="item.id">
-<td>{{ item.name }}</td>
-<td> {{ item.amount }}</td>
-</tr>
-</tbody>
-</table>
+
+<div>
+
+<p>Completed Exercises: {{exercises.filter(exercise => {return exercise.done === true}).length}}</p>
+<p>Incompleted Exercises: {{exercises.filter(exercise => {return exercise.done === false}).length}}</p>
+<display-exercise v-on:complete-exercise="completeExercise" v-for="exercise in exercises" v-bind:exercise="exercise" :key="exercise.id"></display-exercise>
 </div>
 </template>
 
 
 
-<script>
+<script type="text/javascript">
+
+import DisplayExercise from './DisplayExercise'
 
 export default {
-    name: 'ExerciseList', 
-    props: {
-        items: Array 
-    }
 
-
-}
+props: ['exercises'], 
+components: {
+    DisplayExercise,
+},
+methods: {
+completeExercise(exercise) {
+    const exerciseIndex = this.exercises.indexOf(exercise); 
+    this.exercises[exerciseIndex].done = true; 
+    alert('Success!', 'Exercise complete!', 'success')
+},
+}, 
+}; 
 
 </script>
 
 
-<style scoped>
+<style>
 
 
 </style>

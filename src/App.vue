@@ -1,10 +1,8 @@
 <template>
-  <div id="app">
-   <h1>Exercise List</h1>
-   <exercise-list-form />
-    <exercise-list :items='exerciseItems'/>
-    
-  </div>
+ <div id="app">
+ <exercise-list v-bind:exercises="exercises"></exercise-list>
+ <add-exercise v-on:add-exercise="addExercise"></add-exercise>
+ </div>
 </template>
 
 <script>
@@ -13,33 +11,51 @@ import AddExercise from './components/AddExercise.vue'
 
 
 export default {
-  name: 'App',
-  components: {
-    ExerciseList
-  }, 
-  data() {
-    return {
-      exerciseItems: [
-        {
-          id: 1, 
-          name: 'Aerobics', 
-          amount: 1,
-        }, 
-         {
-          id: 2, 
-          name: 'Yoga', 
-          amount: 1,
-        }, 
-           {
-          id: 3, 
-          name: 'Dance', 
-          amount: 1,
-        }, 
-
-      ]
-
-    }
+name: 'app',
+ components: {
+   ExerciseList,
+   AddExercise,
+ },
+  
+data() {
+  return {
+    exercises: [
+      {
+      title: 'Aerobics', 
+      time: '', 
+      distance: '', 
+      sets: '', 
+      reps: '', 
+      weight: '', 
+      done: false,
+    }, 
+      {
+      title: 'Yoga', 
+      time: '', 
+      distance: '', 
+      sets: '', 
+      reps: '', 
+      weight: '', 
+      done: false,
+    }, 
+      {
+      title: 'Cardio', 
+      time: '', 
+      distance: '', 
+      sets: '', 
+      reps: '', 
+      weight: '', 
+      done: false,
+    }], 
   }
+}, 
+methods: {
+  addExercise(newExercise) {
+    this.exercises.push(newExercise)
+  }
+}
+
+ 
 }
 </script>
 
