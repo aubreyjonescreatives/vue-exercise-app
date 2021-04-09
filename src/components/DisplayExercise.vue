@@ -1,8 +1,11 @@
 <template>
 <div>
 
+
 <div class="e-container">
 <div v-show="!isEditing">
+
+
 
 <div class="eInfo">
 {{ exercise.date }}
@@ -30,18 +33,18 @@
 {{ exercise.weight }}
 </div>
 
-<div class="eEdit">
+<div class="c-i">
 <div v-on:click="showForm">Edit</div>
 </div>
 
-<div class="">
-<div v-show="!isEditing && exercise.done"> Completed</div>
+<div class="c-i" v-show="!isEditing && !exercise.done"> Incomplete</div>
 
-<div v-show="!isEditing && !exercise.done"> Incomplete</div>
 
-</div>
-<div v-on:click="completeExercise(exercise)" v-show="!isEditing && !exercise.done">
-Pending Exercises 
+<div class="c-i" v-show="!isEditing && exercise.done"> Completed</div>
+
+
+<div class="c-i-p" v-on:click="completeExercise(exercise)" v-show="!isEditing && !exercise.done">
+Mark as Complete 
 </div>
 
 </div>
@@ -119,15 +122,46 @@ methods: {
 <style>
 
 .e-container {
+    float: left; 
+    display: inline-flex; 
     border: 1px solid gray;
-    width: 200px;
+    border-radius: 10px; 
+    width: 25%;
+    height: 100%;  
     margin: 20px;
 }
 
-.eEdit {
-    padding: 30px; 
-    font-size: 24px;
+.eInfo {
+    padding: 10px; 
+    font-size: 20px;
    
+}
+
+.c-i {
+    border: 1px solid powderblue;
+    border-radius: 10px; 
+    display: inline-block; 
+    background-color: powderblue; 
+    width: 50%; 
+    font-size: 15px; 
+    padding: 7px;  
+    margin: 5px; 
+}
+
+
+
+
+
+.c-i-p {
+    border: 1px solid green;
+    border-radius: 10px; 
+    display: inline-block; 
+    background-color: green; 
+    color: white; 
+    width: 100%; 
+    font-size: 15px; 
+    padding: 7px;  
+    margin: 5px; 
 }
 
 </style>

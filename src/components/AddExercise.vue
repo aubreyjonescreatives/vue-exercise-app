@@ -1,7 +1,7 @@
 <template>
 
 <div>
-<button v-on:click="openForm" v-show="!isCreating">+ exercise</button>
+<button class="addButton" v-on:click="openForm" v-show="!isCreating">+ EXERCISE</button>
 
 <div v-show="isCreating">
 <div>
@@ -102,6 +102,18 @@ methods: {
 
 <style>
 
+
+.addButton {
+    display: block; 
+    clear: both; 
+    width: 200px; 
+    text-align: center; 
+    padding: 10px;
+    background-color: darkblue; 
+    color: white; 
+    border: none; 
+    border-radius: 10px;  
+}
 
 
 </style>

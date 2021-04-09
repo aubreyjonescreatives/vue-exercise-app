@@ -1,5 +1,7 @@
 <template>
+
  <div id="app">
+  <div class="header1">Vue Exercise App</div>
  <exercise-list v-bind:exercises="exercises"></exercise-list>
  <add-exercise v-on:add-exercise="addExercise"></add-exercise>
  </div>
@@ -18,7 +20,10 @@ name: 'app',
  },
   
 data() {
+ 
   return {
+
+
     exercises: [
       {
       title: 'Aerobics', 
@@ -66,6 +71,14 @@ methods: {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  
+}
+
+.header1 {
+  background-color: navy;
+  font-size: 24px; 
+  line: 100; 
+  padding: 20px; 
+  color: white; 
 }
 </style>
